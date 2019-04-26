@@ -6,8 +6,15 @@
   // TODO: build the swim command fetcher here
   //
 
+  const randomDirection = () => {
+    $.post('http://127.0.0.1:3000')
+      .done((input) => {
+        (SwimTeam.move(input), randomDirection())
+      });
+  }
+
   /////////////////////////////////////////////////////////////////////
-  // The ajax file uplaoder is provided for your convenience!
+  // The ajax file uploader is provided for your convenience!
   // Note: remember to fix the URL below.
   /////////////////////////////////////////////////////////////////////
 
@@ -17,7 +24,7 @@
     $.ajax({
       type: 'POST',
       data: formData,
-      url: 'FILL_ME_IN',
+      url: serverUrl,
       cache: false,
       contentType: false,
       processData: false,
